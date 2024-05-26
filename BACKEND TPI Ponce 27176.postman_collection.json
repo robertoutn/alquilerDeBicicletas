@@ -1,0 +1,1028 @@
+{
+	"info": {
+		"_postman_id": "19ba7a03-ff0b-452f-8891-01a2c13bdd0e",
+		"name": "BACKEND TPI Ponce 27176",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17919324"
+	},
+	"item": [
+		{
+			"name": "Alquiler Microservicio",
+			"item": [
+				{
+					"name": "Pto4 finalizar alquiler (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlquiler\": 1002,\r\n  \"idEstacionDevolucion\": 5,\r\n  \"moneda\": \"EUR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquiler}}/finalizar",
+							"host": [
+								"{{puertoBase}}{{urlAlquiler}}"
+							],
+							"path": [
+								"finalizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto3 Iniciar alquiler de bicicleta (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquiler}}/iniciar?idEstacionRetiro=1&idCliente=roberto",
+							"host": [
+								"{{puertoBase}}{{urlAlquiler}}"
+							],
+							"path": [
+								"iniciar"
+							],
+							"query": [
+								{
+									"key": "idEstacionRetiro",
+									"value": "1"
+								},
+								{
+									"key": "idCliente",
+									"value": "roberto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto6 (Admin)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idCliente\": \"b\",\n  \"estado\": null,\n  \"estacionRetiro\": null,\n  \"estacionDevolucion\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquiler}}",
+							"host": [
+								"{{puertoBase}}{{urlAlquiler}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alquiler GateWay",
+			"item": [
+				{
+					"name": "Pto4 finalizar alquiler (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idAlquiler\": 1002,\r\n  \"idEstacionDevolucion\": 3,\r\n  \"moneda\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquilerGW}}/finalizar",
+							"host": [
+								"{{puertoBase}}{{urlAlquilerGW}}"
+							],
+							"path": [
+								"finalizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto3 Iniciar alquiler (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquilerGW}}/iniciar?idEstacionRetiro=3&idCliente=r",
+							"host": [
+								"{{puertoBase}}{{urlAlquilerGW}}"
+							],
+							"path": [
+								"iniciar"
+							],
+							"query": [
+								{
+									"key": "idEstacionRetiro",
+									"value": "3"
+								},
+								{
+									"key": "idCliente",
+									"value": "r"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto6 (Admin)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Administrator",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{passAdm}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userAdm}}",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idCliente\": \"b\",\n  \"estado\": null,\n  \"estacionRetiro\": null,\n  \"estacionDevolucion\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlAlquilerGW}}",
+							"host": [
+								"{{puertoBase}}{{urlAlquilerGW}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estacion Microservicio",
+			"item": [
+				{
+					"name": "Pto1 todas (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "27176-2023",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "27176@sistemas.frc.utn.edu.ar",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacion}}/0",
+							"host": [
+								"{{puertoBase}}{{urlEstacion}}"
+							],
+							"path": [
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto5 (Admin)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Administrador",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "grutpi-22-2023#",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "grutpi-22",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitud\": -31.38,\r\n    \"longitud\": -64.20,\r\n    \"nombre\": \"Roberto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacion}}",
+							"host": [
+								"{{puertoBase}}{{urlEstacion}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto2 mas Cercana  (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacion}}/ubicacionMasCercana?latitud=-60&longitud=-50",
+							"host": [
+								"{{puertoBase}}{{urlEstacion}}"
+							],
+							"path": [
+								"ubicacionMasCercana"
+							],
+							"query": [
+								{
+									"key": "latitud",
+									"value": "-60"
+								},
+								{
+									"key": "longitud",
+									"value": "-50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estacion GateWay",
+			"item": [
+				{
+					"name": "Pto1 todas (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacionGW}}/0",
+							"host": [
+								"{{puertoBase}}{{urlEstacionGW}}"
+							],
+							"path": [
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto5 (Admin)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "password",
+									"value": "{{passAdm}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userAdm}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token Administrador",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitud\": -2,\r\n    \"longitud\": -78,\r\n    \"nombre\": \"Ecuador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacionGW}}",
+							"host": [
+								"{{puertoBase}}{{urlEstacionGW}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pto2 mas Cercana  (Cliente)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenName",
+									"value": "Token Cliente",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{passCli}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userCli}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "cliente-tpi",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "ZmiMMce6zh4xKHde1FFKbfkiThDyYpyn",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "tpi-scope",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://labsys.frc.utn.edu.ar/aim/realms/backend-tps/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{puertoBase}}{{urlEstacionGW}}/ubicacionMasCercana?latitud=-89&longitud=-90",
+							"host": [
+								"{{puertoBase}}{{urlEstacionGW}}"
+							],
+							"path": [
+								"ubicacionMasCercana"
+							],
+							"query": [
+								{
+									"key": "latitud",
+									"value": "-89"
+								},
+								{
+									"key": "longitud",
+									"value": "-90"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ConversorMoneda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"moneda_destino\":\"USD\",\r\n    \"importe\":1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://34.82.105.125:8080/convertir",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"105",
+						"125"
+					],
+					"port": "8080",
+					"path": [
+						"convertir"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userCli",
+			"value": "27176@sistemas.frc.utn.edu.ar",
+			"type": "string"
+		},
+		{
+			"key": "passCli",
+			"value": "27176-2023",
+			"type": "string"
+		},
+		{
+			"key": "userAdm",
+			"value": "grutpi-22",
+			"type": "string"
+		},
+		{
+			"key": "passAdm",
+			"value": "grutpi-22-2023#",
+			"type": "string"
+		},
+		{
+			"key": "urlAlquiler",
+			"value": "2/api/alquiler",
+			"type": "string"
+		},
+		{
+			"key": "urlAlquilerGW",
+			"value": "3/api/alquiler",
+			"type": "string"
+		},
+		{
+			"key": "urlEstacion",
+			"value": "1/api/estacion",
+			"type": "string"
+		},
+		{
+			"key": "urlEstacionGW",
+			"value": "3/api/estacion",
+			"type": "string"
+		},
+		{
+			"key": "puertoBase",
+			"value": "http://localhost:808",
+			"type": "string"
+		}
+	]
+}
